@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Powered Nanoparticle Drug Optimizer</title>
+    
+    <!-- Bootstrap CSS - Replit Dark Theme -->
+    <link rel="stylesheet" href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cyberpunk-animations.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cyberpunk-components.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cyberpunk.css') }}">
+    
+    <!-- Advanced 3D/Animation Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r150/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.150.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    
+    <!-- ChemDoodle Web Components for molecular structure input -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chemdoodle-web@9.4.0/install/ChemDoodleWeb.css">
+    <script src="https://cdn.jsdelivr.net/npm/chemdoodle-web@9.4.0/install/ChemDoodleWeb.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chemdoodle-web@9.4.0/install/uis/ChemDoodleWeb-uis.js"></script>
+    <!-- Futuristic design libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/lax.js@2.0.3/lib/lax.min.js"></script>
+    <!-- Hero Section -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Sample molecules for examples -->
+    <script src="{{ url_for("static", filename="js/molecule-examples.js") }}"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Futuristic design libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/lax.js@2.0.3/lib/lax.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Hero Section -->
+    <section id="hero" class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <h1 class="display-4 fw-bold mb-3 glitch-text">AI-Powered Nanoparticle Drug Optimizer</h1>
+                    <p class="lead mb-4">
+                        Transform drug delivery systems with advanced AI optimization. Our platform uses cutting-edge machine learning to design optimal nanoparticle formulations for your drug molecules.
+                    </p>
+                    <div class="d-flex gap-3">
+                        <a href="#explorer" class="btn btn-primary pulse-element">
+                            <i class="fas fa-microscope me-2"></i>Explore Now
+                        </a>
+                        <a href="#technology" class="btn btn-outline-secondary">
+                            <i class="fas fa-lightbulb me-2"></i>Learn More
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-5 text-center">
+                    <svg width="400" height="400" viewBox="0 0 100 100" class="mt-4 mt-lg-0 float-element">
+                        <!-- SVG Illustration of Nanoparticle -->
+                        <circle cx="50" cy="50" r="20" fill="#6c757d" opacity="0.7"></circle>
+                        <circle cx="50" cy="50" r="30" stroke="#adb5bd" stroke-width="1" fill="none" stroke-dasharray="2,2"></circle>
+                        <circle cx="50" cy="50" r="40" stroke="#adb5bd" stroke-width="0.5" fill="none" stroke-dasharray="1,2"></circle>
+                        <!-- Atoms/particles around the main nanoparticle -->
+                        <circle cx="35" cy="35" r="3" fill="#007bff"></circle>
+                        <circle cx="67" cy="42" r="2" fill="#fd7e14"></circle>
+                        <circle cx="55" cy="72" r="2.5" fill="#20c997"></circle>
+                        <circle cx="30" cy="60" r="2" fill="#dc3545"></circle>
+                        <circle cx="75" cy="58" r="3" fill="#6610f2"></circle>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section id="technology" class="py-5 bg-dark circuit-overlay">
+        <div class="container">
+            <h2 class="text-center mb-5">Our AI Technology Stack</h2>
+            <div class="row g-4">
+                <div class="col-md-4" class="lax-fade-in">
+                    <div class="card h-100 border-0 bg-dark-subtle">
+                        <div class="card-body text-center">
+                            <i class="fas fa-brain fa-3x mb-3 text-primary"></i>
+                            <h3 class="card-title">Molecular Property Analysis</h3>
+                            <p class="card-text">
+                                Our AI predicts nanoparticle stability, toxicity, and effectiveness using pre-trained models from Vertex AI and Hugging Face.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" class="lax-fade-in">
+                    <div class="card h-100 border-0 bg-dark-subtle">
+                        <div class="card-body text-center">
+                            <i class="fas fa-dna fa-3x mb-3 text-success"></i>
+                            <h3 class="card-title">Nanoparticle Optimization</h3>
+                            <p class="card-text">
+                                Using GPT-4 Turbo/Gemini with specialized prompt engineering to suggest optimal nanoparticle modifications for enhanced drug efficiency.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" class="lax-fade-in">
+                    <div class="card h-100 border-0 bg-dark-subtle">
+                        <div class="card-body text-center">
+                            <i class="fas fa-shield-alt fa-3x mb-3 text-info"></i>
+                            <h3 class="card-title">Toxicity Classification</h3>
+                            <p class="card-text">
+                                Advanced classification models to determine nanoparticle safety and stability based on molecular structure and properties.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nanoparticle Explorer Section -->
+    <section id="explorer" class="py-5 grid-bg">
+        <div class="container">
+            <h2 class="text-center mb-5">Nanoparticle Explorer</h2>
+            
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="card bg-dark-subtle mb-4">
+                        <div class="card-header">
+                            <h3 class="card-title">Input Molecular Data</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <label for="moleculeName" class="form-label">Molecule Name (optional)</label>
+                                <input type="text" class="form-control" id="moleculeName" placeholder="e.g., Paclitaxel">
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">SMILES Input</label>
+                                <textarea class="form-control font-monospace" id="smilesInput" rows="3" placeholder="Enter SMILES notation..."></textarea>
+                                <div class="form-text">Enter a valid SMILES string representing your molecule</div>
+                            </div>
+                            
+                            <!-- Molecule Visualization section removed as requested -->
+                            
+                            <div class="d-grid gap-2">
+                                <button id="predictBtn" class="btn btn-primary pulse-element">
+                                    <i class="fas fa-calculator me-2"></i>Predict Properties
+                                </button>
+                                <button id="optimizeBtn" class="btn btn-success" disabled>
+                                    <i class="fas fa-magic me-2"></i>Optimize Nanoparticle
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="card bg-dark-subtle mb-4">
+                        <div class="card-header">
+                            <h3 class="card-title">Molecular Properties</h3>
+                        </div>
+                        <div class="card-body">
+                            <div id="propertiesOutput">
+                                <div class="text-center text-muted py-5">
+                                    <i class="fas fa-atom fa-3x mb-3"></i>
+                                    <p>Enter a molecule and click "Predict Properties" to begin analysis</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card bg-dark-subtle">
+                        <div class="card-header">
+                            <h3 class="card-title">Nanoparticle Optimization</h3>
+                        </div>
+                        <div class="card-body">
+                            <div id="optimizationOutput">
+                                <div class="text-center text-muted py-5">
+                                    <i class="fas fa-vial fa-3x mb-3"></i>
+                                    <p>After property prediction, click "Optimize Nanoparticle" to generate optimal design</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-4">
+                <div class="col-12">
+                    <div class="card bg-dark-subtle">
+                        <div class="card-header">
+                            <h3 class="card-title">3D Visualization</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div id="visualizationContainer" style="width: 100%; height: 500px; border: 1px solid #495057;">
+                                        <div class="text-center text-muted py-5 h-100 d-flex align-items-center justify-content-center">
+                                            <div>
+                                                <i class="fas fa-cube fa-3x mb-3"></i>
+                                                <p>3D visualization will appear here after optimization</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4" class="lax-fade-in">
+                                    <div id="visualizationControls" class="mb-3">
+                                        <h4 class="mb-3">Visualization Controls</h4>
+                                        <div class="mb-3">
+                                            <label for="viewSelector" class="form-label">View Mode</label>
+                                            <select class="form-select" id="viewSelector" disabled>
+                                                <option value="both">Nanoparticle & Drug</option>
+                                                <option value="nano">Nanoparticle Only</option>
+                                                <option value="drug">Drug Molecule Only</option>
+                                                <option value="interaction">Interaction Points</option>
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="rotationSpeed" class="form-label">Rotation Speed</label>
+                                            <input type="range" class="form-range" id="rotationSpeed" min="0" max="100" value="30" disabled>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="zoomLevel" class="form-label">Zoom Level</label>
+                                            <input type="range" class="form-range" id="zoomLevel" min="0" max="100" value="50" disabled>
+                                        </div>
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" id="showLabels" disabled>
+                                            <label class="form-check-label" for="showLabels">Show Labels</label>
+                                        </div>
+                                    </div>
+                                    <!-- Visualization Info Panel removed as requested -->
+        </div>
+    </section>
+
+
+    <!-- Chatbot Component -->
+    <div id="chatbot" class="chatbot-container">
+        <div class="chatbot-toggle" id="chatToggle">
+            <i class="fas fa-comment-dots"></i>
+        </div>
+        <div class="chatbot-panel" id="chatPanel">
+            <div class="chatbot-header">
+                <h4>AI Research Assistant</h4>
+                <button class="btn-close btn-close-white" id="chatClose"></button>
+            </div>
+            <div class="chatbot-messages" id="chatMessages">
+                <div class="message system">
+                    Hello! I'm your AI research assistant. Ask me anything about nanoparticle drug delivery, molecular optimization, or our analysis results.
+                </div>
+            </div>
+            <div class="chatbot-input">
+                <textarea id="chatInput" placeholder="Type your question here..." rows="1"></textarea>
+                <button id="chatSend">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <!-- Core optimization scripts load first -->
+    <script src="{{ url_for('static', filename='js/performance-optimization.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/app-initializer.js') }}"></script>
+    
+    <!-- Main application scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/nanoparticle_explorer.js') }}"></script>
+    
+    <!-- Visualization scripts - include fallback before main for better error handling -->
+    <script src="{{ url_for('static', filename='js/molecule-visualization.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/3d_visualization.js') }}"></script>
+    
+    <!-- Additional UI components -->
+    <script src="{{ url_for('static', filename='js/cyber-background.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/molecule-examples.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/chatbot.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/ai_research_insights.js') }}"></script>
+    
+    <script>
+        // Initialize visualization fallback if THREE.js fails
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                const visualizationContainer = document.getElementById('visualizationContainer');
+                if (visualizationContainer && typeof THREE === 'undefined' || 
+                    !window.hasOwnProperty('scene') || document.querySelector('#visualizationContainer canvas') === null) {
+                    console.log("THREE.js visualization failed, initializing fallback 2D visualization");
+                    initVisualizationFallback(visualizationContainer);
+                }
+            }, 1000); // Wait a second to make sure THREE.js has time to initialize
+        });
+    </script>
+</body>
+</html>

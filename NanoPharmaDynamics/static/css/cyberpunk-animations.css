@@ -1,0 +1,251 @@
+/* Cyberpunk Animations CSS */
+
+/* Floating element animation */
+.float-element {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Pulse element animation */
+.pulse-element {
+    position: relative;
+}
+
+.pulse-element::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    box-shadow: 0 0 0 0 var(--pulse-color, rgba(0, 243, 255, 0.7));
+    animation: pulse 2s infinite;
+    z-index: -1;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 var(--pulse-color, rgba(0, 243, 255, 0.7));
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(0, 243, 255, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(0, 243, 255, 0);
+    }
+}
+
+/* Data flow animation */
+.data-flow {
+    position: relative;
+    overflow: hidden;
+}
+
+.data-flow::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background: linear-gradient(45deg, 
+        transparent 25%, 
+        rgba(0, 243, 255, 0.1) 25%, 
+        rgba(0, 243, 255, 0.1) 30%, 
+        transparent 30%, 
+        transparent 35%, 
+        rgba(0, 243, 255, 0.1) 35%, 
+        rgba(0, 243, 255, 0.1) 40%, 
+        transparent 40%);
+    animation: data-flow 2s linear infinite;
+    background-size: 60px 60px;
+    z-index: -1;
+}
+
+@keyframes data-flow {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 60px 60px;
+    }
+}
+
+/* Typing cursor animation */
+.typing-cursor {
+    display: inline-block;
+    width: 10px;
+    height: 20px;
+    background-color: var(--cyber-primary);
+    margin-left: 5px;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Scanner animation */
+.scanner {
+    position: relative;
+    overflow: hidden;
+}
+
+.scanner::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(0, 243, 255, 0.2),
+        transparent
+    );
+    animation: scan 2s linear infinite;
+}
+
+@keyframes scan {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 200%;
+    }
+}
+
+/* GSAP-powered animations for scrolling */
+.lax-fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.lax-fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.lax-slide-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.lax-slide-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.lax-slide-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.lax-slide-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Neon flicker animation */
+.neon-flicker {
+    animation: flicker 2s linear infinite;
+}
+
+@keyframes flicker {
+    0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
+        opacity: 1;
+    }
+    20%, 21.999%, 63%, 63.999%, 65%, 69.999% {
+        opacity: 0.5;
+    }
+}
+
+/* Loading indicator for API calls */
+.loading-indicator {
+    width: 80px;
+    height: 20px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+
+.loading-indicator div {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: var(--cyber-primary);
+    animation: loading 1.5s cubic-bezier(0.17, 0.37, 0.43, 0.67) infinite;
+}
+
+.loading-indicator div:nth-child(2) {
+    animation-delay: 0.2s;
+    background: var(--cyber-secondary);
+}
+
+.loading-indicator div:nth-child(3) {
+    animation-delay: 0.4s;
+    background: var(--cyber-accent);
+}
+
+@keyframes loading {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Scrolling text animation */
+.scrolling-text-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    height: 30px;
+}
+
+.scrolling-text {
+    position: absolute;
+    white-space: nowrap;
+    animation: scroll-text 20s linear infinite;
+}
+
+@keyframes scroll-text {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* Glow hover effect */
+.glow-hover {
+    transition: all 0.3s ease;
+}
+
+.glow-hover:hover {
+    color: #fff;
+    text-shadow: 0 0 5px #fff, 0 0 10px var(--cyber-primary), 0 0 15px var(--cyber-primary), 0 0 20px var(--cyber-primary);
+}
