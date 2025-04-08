@@ -1,6 +1,5 @@
 # NanoPharmaDynamics 🧬
 
-![NanoPharmaDynamics](generated-icon.png)
 
 An advanced AI-powered platform for optimizing nanoparticle design in pharmaceutical applications. This system combines machine learning with molecular modeling to predict and optimize nanoparticle properties for drug delivery systems.
 
@@ -27,7 +26,7 @@ An advanced AI-powered platform for optimizing nanoparticle design in pharmaceut
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/NanoPharmaDynamics.git
+git clone https://github.com/singupurapusaicharan/AI-Powered-Nanoparticle-Drug-Optimizer.git
 cd NanoPharmaDynamics
 ```
 
@@ -137,13 +136,6 @@ python main.py
 
 The development server will start at `http://localhost:5000`
 
-## 📚 Documentation
-
-Detailed documentation is available in the `/docs` directory:
-- API Documentation
-- User Guide
-- Development Guide
-- Best Practices
 
 ## 🤝 Contributing
 
